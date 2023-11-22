@@ -10,18 +10,18 @@ class DiaryEntry:
         self.contents = contents
 
     def count_words(self):
-        # Returns:
-        #   An integer representing the number of words in the contents
         return len(self.contents.split())
 
     def reading_time(self, wpm):
+        return self.count_words() / wpm
+
         # Parameters:
         #   wpm: an integer representing the number of words the user can read
         #        per minute
         # Returns:
         #   An integer representing an estimate of the reading time in minutes
         #   for the contents at the given wpm.
-        pass
+        
 
     def reading_chunk(self, wpm, minutes):
         # Parameters:
