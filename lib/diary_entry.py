@@ -25,11 +25,12 @@ class DiaryEntry:
         
 
     def reading_chunk(self, wpm, minutes):
+        if self.bookmark >= len(self.contents):
+            self.bookmark = 0
         words_to_read = wpm * minutes
-        if words_to_read <= len(self.contents):
-            list_of_words = self.contents.split()[self.bookmark:self.bookmark + words_to_read]
-            self.bookmark += words_to_read
-            return " ".join(list_of_words)
+        list_of_words = self.contents.split()[self.bookmark:self.bookmark+ words_to_read]
+        self.bookmark += words_to_read
+        return " ".join(list_of_words)
         
 
         # for entry in self.entries:

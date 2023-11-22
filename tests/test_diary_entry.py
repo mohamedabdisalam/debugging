@@ -14,12 +14,15 @@ def test_reading_time_based_on_given_int():
 
 def test_give_a_chunk_of_text_we_can_read_in_given_time():
     diary_entry = DiaryEntry("Tuesday", "Today was a good day six seven eight nine ten")
-    expected = "Today was a good day"
+    expected = "six seven eight nine ten"
+    diary_entry.reading_chunk(5, 1)
     actual = diary_entry.reading_chunk(5, 1)
     assert expected == actual
 
 def test_give_a_chunk_of_text_we_can_read_in_given_time_longer():
     diary_entry = DiaryEntry("Tuesday", "Today was a good day six seven eight nine ten")
-    expected = "six seven eight nine ten"
+    expected = "Today was a good day"
+    diary_entry.reading_chunk(5, 1)
+    diary_entry.reading_chunk(5, 1)
     actual = diary_entry.reading_chunk(5, 1)
     assert expected == actual
