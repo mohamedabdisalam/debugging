@@ -91,12 +91,12 @@ def test_best_entry_for_reading_time():
     actual = diary.find_best_entry_for_reading_time(5, 1)
     assert expected == actual
 
-# def test_best_entry_for_reading_time_longer():
-#     diary = Diary()
-#     entry1 = DiaryEntry("Title1", "Today was a good day")
-#     entry2 = DiaryEntry("Title2", "One Two Three Four Five Siz Seven Eight Nine Ten")
-#     diary.add(entry1)
-#     diary.add(entry2)
-#     expected = "Title2"
-#     actual = diary.find_best_entry_for_reading_time(10, 1)
-#     assert expected == actual
+def test_best_entry_for_reading_time_longer():
+    diary = Diary()
+    entry1 = DiaryEntry("Title1", "Today was a good day Today was a good day Today was a good day Today was a good day Today was a good day")
+    entry2 = DiaryEntry("Title2", "One Two Three Four Five Siz Seven Eight Nine Ten")
+    diary.add(entry1)
+    diary.add(entry2)
+    expected = "Title2"
+    actual = diary.find_best_entry_for_reading_time(10, 1)
+    assert expected == actual

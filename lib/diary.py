@@ -21,7 +21,7 @@ class Diary:
     def find_best_entry_for_reading_time(self, wpm, minutes):
         number_of_words_to_read = wpm * minutes
         for entry in self.entries:
-            if min(self.entries, key=lambda x:abs(number_of_words_to_read)):
+            if number_of_words_to_read <= self.count_words():
                 return entry.title
 
 
