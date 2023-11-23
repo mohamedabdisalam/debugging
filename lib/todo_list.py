@@ -1,6 +1,8 @@
 class TodoList:
     def __init__(self):
         self.task_list = []
+        # self.incomplete = False
+        self.complete = True
 
     def add(self, todo):
         # Parameters:
@@ -14,6 +16,9 @@ class TodoList:
     def incomplete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are not complete
+        # for task in self.task_list:
+        #     if task == s:
+        #         return task
         return self.task_list
 
     def complete(self):

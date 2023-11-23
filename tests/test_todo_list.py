@@ -1,14 +1,23 @@
 from lib.todo_list import *
-from lib.todo import *
+
+"""
+Test initialiser is initialising
+"""
+
+def test_initialiser():
+    todo_list = TodoList()
+    assert isinstance(todo_list, TodoList)
 
 """
 Given we are adding a task 
-The task should be in the dictionary
 Returns nothing
-Default should be false 
+Sideffect task is added to the list
 """
 
-def test_add_a_new_task_to_the_dictionary_as_false():
+def test_add_a_new_task_to_the_list():
     todo_list = TodoList()
-    entry1 = Todo("Go the the gym")
-    entry2 = Todo("Go the the gym")
+    todo_list.add("Go the the gym")
+    expected = ["Go the the gym"]
+    actual = todo_list.task_list
+    assert expected == actual 
+
