@@ -1,8 +1,11 @@
+from lib.todo import *
+
+
 class TodoList:
     def __init__(self):
         self.task_list = []
         # self.incomplete = False
-        self.complete = True
+        # self.complete = True
 
     def add(self, todo):
         # Parameters:
@@ -12,25 +15,34 @@ class TodoList:
         # Side-effects:
         #   Adds the todo to the list of todos
         self.task_list.append(todo)
-      
+    
     def incomplete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are not complete
-        # for task in self.task_list:
-        #     if task == s:
-        #         return task
-        return self.task_list
+        incomplete_tasks = []
+        for task in self.task_list:
+            if task.complete == False:
+                incomplete_tasks.append(task)
+        return incomplete_tasks
 
     def complete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are complete
-        pass
+        complete_tasks = []
+        for task in self.task_list:
+            if task.complete == True:
+                complete_tasks.append(task)
+        return complete_tasks
+        
 
     def give_up(self):
+        for task in self.task_list:
+            task.complete = True
+
+
+
         # Returns:
         #   Nothing
         # Side-effects:
-        #   Marks all todos as complete
-        pass
-
+        #   Marks all todos as complet
 

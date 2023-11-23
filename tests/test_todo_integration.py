@@ -25,14 +25,15 @@ Return the list of items that are incomplete
 
 """
 
-# def test_return_a_list_of_incomplete_tasks():
-#     todo_list = TodoList()
-#     entry1 = todo_list.add("Go the the gym")
-#     entry2 = todo_list.add("Go the the shop")
-#     entry3 = todo_list.add("Go the the hospital")
-#     expected = [entry1, entry2, entry3]
-#     actual = todo_list.incomplete()
-#     assert expected == actual 
+def test_return_a_list_of_incomplete_tasks():
+    todo_list = TodoList()
+    todo1 = Todo("Going to the gym")
+    todo2 = Todo("Going to the shop")
+    todo_list.add(todo1)
+    todo_list.add(todo2)
+    expected = [todo1, todo2]
+    actual = todo_list.incomplete()
+    assert actual == expected
 
 """
 Given we have a list of tasks
@@ -41,16 +42,27 @@ When we complete a task
 Completed tasks
 """
 
-# def test_return_a_list_of_completed_taks():
-#     todo_list = TodoList()
-#     entry1 = Todo("Go the the gym")
-#     entry2 = Todo("Finish test driving a class system")
-#     entry1.mark_complete()
-#     todo_list.add(entry1)
-#     todo_list.add(entry2)
-#     expected = []
-#     actual = todo_list.complete() #ret
-#     assert expected == actual
+def test_return_a_list_of_completed_tasks():
+    todo_list = TodoList()
+    todo1 = Todo("Going to the gym")
+    todo2 = Todo("Going to the shop")
+    todo_list.add(todo1)
+    todo_list.add(todo2)
+    todo1.mark_complete()
+    expected = [todo1]
+    actual = todo_list.complete()
+    assert actual == expected
 
 
- 
+
+
+def test_marks_all_tasks_in_list_as_complete():
+    todo_list = TodoList()
+    todo1 = Todo("Going to the gym")
+    todo2 = Todo("Going to the shop")
+    todo_list.add(todo1)
+    todo_list.add(todo2)
+    todo_list.give_up()
+    expected = [todo1, todo2]
+    actual = todo_list.complete()
+    assert actual == expected
