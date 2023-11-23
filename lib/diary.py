@@ -20,9 +20,12 @@ class Diary:
 
     def find_best_entry_for_reading_time(self, wpm, minutes):
         number_of_words_to_read = wpm * minutes
+        my_dictionary = {}
         for entry in self.entries:
-            if number_of_words_to_read <= self.count_words():
-                return entry.title
+            if entry.count_words() <= number_of_words_to_read:
+                my_dictionary[entry] = entry.count_words()
+        best_match = sorted(my_dictionary.items(), key=lambda item: item[1])[-1][0]
+        return best_match.title
 
 
         # for entry in self.entries:
